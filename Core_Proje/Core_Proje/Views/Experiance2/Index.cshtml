@@ -1,0 +1,152 @@
+﻿@using EntityLayer.Concrete
+@model List<Experiance>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<div class="col-md-6">
+    <div class="p-2">
+        a
+        <button type="button" id="btngetlistall" class="btn btn-outline-primary">Verileri Getir</button>
+        <button type="button" id="btnadd" class="btn btn-outline-info">Kaydet</button>
+        <button type="button" id="btnid" class="btn btn-outline-warning">Id ile Getir</button>
+        <button type="button" id="btndelete" class="btn btn-outline-danger">Sil</button>
+        <button type="button" id="btnupdate" class="btn btn-outline-success">Güncelle</button>
+    </div>
+</div>
+
+<div class="p-2" id="listexperiance">
+
+</div>
+
+<br />
+
+<div class="p-2" id="listbyidexperiance">
+
+</div>
+
+<br />
+
+<div class="col-md-12">
+    <h5>Ekleme Paneli</h5>
+    <input type="text" class="form-control" id="inpname" placeholder="Başlık" />
+    <br />
+    <input type="text" class="form-control" id="inpdate" placeholder="Tarih" />
+</div>
+<br />
+<div class="col-md-12">
+    <h5>Id'ye Göre Getirme Paneli</h5>
+    <input type="text" class="form-control" id="inpid" placeholder="ID Giriniz" />
+</div>
+
+<br />
+
+<div class="col-md-12">
+    <h5>Silme Paneli</h5>
+    <input type="text" class="form-control" id="inpexpid" placeholder="ID Giriniz" />
+</div>
+<br />
+<div class="col-md-12">
+    <h5>Güncelleme Paneli</h5>
+    <input type="text" class="form-control" id="inpeditexpid" placeholder="ID Giriniz" />
+    <br />
+    <input type="text" class="form-control" id="inpeditexpname" placeholder="Tarih Giriniz" />
+</div>
+
+@section _Script
+{
+    <script>
+        $("#btngetlistall").click(function () {
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/Experiance2/ListExperiance/",
+
+                success: function (funk) {
+                    let values = jQuery.parseJSON(funk);
+                    console.log(values);
+
+                    let htmlst = "<table class=table table-bordered> <tr> <th> ID </th> <th> Başlık </th> <th> Tarih </th> </tr>";
+                    $.each(values, (index, value) => {
+                        htmlst += `<tr> <td>${value.ExperianceID}</td> <td>${value.Name}</td> <td>${value.Date}</td> </tr>`
+                    });
+                    htmlst += "</table>";
+                    $("#listexperiance").html(htmlst);
+                }
+            });
+        });
+
+        $("#btnid").click(x => {
+            let id = $("#inpid").val();
+
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/Experiance2/GetById/",
+                data: { ExperianceID: id },
+                success: function (funk2) {
+                    let result = jQuery.parseJSON(funk2);
+                    console.log(result);
+                    let htmlstr = `<table class=table table-hover> <tr> <th>Deneyim ID</th> <td>${result.ExperianceID}</td></tr> <tr> <th> Deneyim Başlığı </th> <td> ${result.Name}</td> </tr> </table>`;
+                    $("#listbyidexperiance").html(htmlstr);
+                }
+            });
+
+        });
+
+        $("#btnadd").click(function () {
+            let values = {
+                Name: $("#inpname").val(),
+                Date: $("#inpdate").val()
+            };
+
+            $.ajax({
+                type: "Post",
+                url: "/Experiance2/AddExperiance/",
+                data: values,
+                //success: function (funk1) {
+                //    let result = jQuery.parseJSON(funk1);
+                //    alert(result.Name + "Başarılı bir şekilde eklendi");
+                //}
+            });
+        });
+
+
+        $("#btndelete").click(x => {
+            let id = $("#inpexpid").val();
+            $.ajax({
+                url: "/Experiance/DeleteExperiance/" + id,
+                type: "post",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (funk3) {
+                    loadData();
+                }
+            });
+        });
+
+        $("#btnupdate").click(function () {
+            let values = {
+                ExperianceID: $("#inpeditexpid").val(),
+                Name: $("#inpeditexpname").val()
+            };
+
+            $.ajax({
+                type: "post",
+                url: "/Experiance2/UpdateExperince/",
+                data: values,
+                success: function (func4) {
+                    alert(values.Date + "Güncelleme işlemi yapıldı");
+                }
+            });
+        });
+
+    </script>
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+

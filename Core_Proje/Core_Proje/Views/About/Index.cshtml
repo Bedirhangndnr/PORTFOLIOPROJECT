@@ -1,0 +1,52 @@
+﻿@model EntityLayer.Concrete.About
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+@using (Html.BeginForm("Index", "About", FormMethod.Post))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Deneyim Düzenleme Paneli</h4>
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label>ID</label>
+                        @Html.TextBoxFor(X => X.AboutID, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Başlık</label>
+                        @Html.TextBoxFor(X => X.Title, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Yaş</label>
+                        @Html.TextBoxFor(X => X.Age, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Mail</label>
+                        @Html.TextBoxFor(X => X.Mail, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Adres</label>
+                        @Html.TextBoxFor(X => X.Address, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon</label>
+                        @Html.TextBoxFor(X => X.Phone, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Görsel Url</label>
+                        @Html.TextBoxFor(X => X.ImageURL, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Açıklama</label>
+                        @Html.TextAreaFor(X => X.Description,6,3, new { @class = "form-control" })
+                    </div>
+                    <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                    <button class="btn btn-dark">İptal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+};
