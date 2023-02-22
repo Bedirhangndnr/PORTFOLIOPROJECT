@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "saWF56t3Rw9rQmJIX2brH/4T76XkTtDseidRs2hvot2MxGgvCZIs0ykXhdty2TL35FyQhoG3pPJ11oPxH9UtXg==",
+  "dgSpecHash": "D9yQ2i+hVRh1POGKkcU7tkWXRYmZihpbUfdthDEQaHOL8jRRC4g3PJydoVUQnq3Hcb+7T0gj5Ji4E6MEN3USXA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bedir\\source\\repos\\Core_Proje\\Core_Proje_Api\\Core_Proje_Api.csproj",
+  "projectFilePath": "C:\\Users\\bedir\\source\\repos\\PORTFOLIOPROJECT\\Core_Proje\\Core_Proje_Api\\Core_Proje_Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bedir\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\bedir\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

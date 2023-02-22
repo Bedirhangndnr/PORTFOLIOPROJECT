@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9Ze7+OBOWOyDyfNu7UZV3+Jvz3NWApMybEHWllyjHbSPTD/nQzMkTHeuHCNh4sAEKIj7xR7mG85ZDjO8PS6p9w==",
+  "dgSpecHash": "kUdelIzroqg2+uS2UMB+Ne+0TqMEM4CZY3muQdhIAav870lNKOY6T6snv1szEZXMskS0pHuNFKViI55zjRrNsA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bedir\\source\\repos\\Core_Proje\\EntityLayer\\EntityLayer.csproj",
+  "projectFilePath": "C:\\Users\\bedir\\source\\repos\\PORTFOLIOPROJECT\\Core_Proje\\EntityLayer\\EntityLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bedir\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\bedir\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
